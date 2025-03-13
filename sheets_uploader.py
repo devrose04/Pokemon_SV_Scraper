@@ -1,128 +1,209 @@
 import json
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+import os
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 
-def upload_to_sheets(json_file, spreadsheet_name, credentials_file='credentials.json'):
+def upload_to_sheets(json_file_path, spreadsheet_name, credentials_file):
     """
-    Upload data from a JSON file to a Google Spreadsheet.
+    Upload JSON data to Google Sheets
     
     Args:
-        json_file (str): Path to the JSON file containing the data
-        spreadsheet_name (str): Name of the Google Spreadsheet
-        credentials_file (str): Path to the Google API credentials file
+        json_file_path (str): Path to the JSON data file to upload
+        spreadsheet_name (str): Name of the Google Sheets document
+        credentials_file (str): Path to the Google API credentials JSON file
+    
+    Returns:
+        str: Spreadsheet ID if successful, None otherwise
     """
     try:
-        # Load the trainer data from the JSON file
-        with open(json_file, 'r', encoding='utf-8') as f:
-            trainer_data = json.load(f)
+        # Verify files exist
+        if not os.path.exists(credentials_file):
+            print(f"Error: Credentials file not found at {credentials_file}")
+            return None
+            
+        if not os.path.exists(json_file_path):
+            print(f"Error: JSON data file not found at {json_file_path}")
+            return None
         
-        # Set up the credentials for the Google Sheets API
-        scope = ['https://spreadsheets.google.com/feeds',
-                 'https://www.googleapis.com/auth/drive']
-        credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_file, scope)
-        client = gspread.authorize(credentials)
+        # Load JSON data
+        with open(json_file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
         
-        # Open the spreadsheet (create it if it doesn't exist)
-        try:
-            spreadsheet = client.open(spreadsheet_name)
-        except gspread.exceptions.SpreadsheetNotFound:
-            spreadsheet = client.create(spreadsheet_name)
-            print(f"Created new spreadsheet: {spreadsheet_name}")
+        # Set up credentials
+        credentials = service_account.Credentials.from_service_account_file(
+            credentials_file,
+            scopes=['https://www.googleapis.com/auth/spreadsheets', 
+                   'https://www.googleapis.com/auth/drive']
+        )
         
-        # Clear existing worksheets
-        for worksheet in spreadsheet.worksheets():
-            spreadsheet.del_worksheet(worksheet)
+        # Build the services
+        sheets_service = build('sheets', 'v4', credentials=credentials)
+        drive_service = build('drive', 'v3', credentials=credentials)
         
-        # Create the main worksheet for trainer data
-        main_worksheet = spreadsheet.add_worksheet(title="Trainer Data", rows=len(trainer_data)+1, cols=10)
+        # Check if spreadsheet already exists
+        results = drive_service.files().list(
+            q=f"name='{spreadsheet_name}' and mimeType='application/vnd.google-apps.spreadsheet'",
+            spaces='drive',
+            fields='files(id, name)'
+        ).execute()
         
-        # Set up the header row
-        headers = ["Trainer Name", "Rank", "Rating", "URL", "Pokemon Count", "Pokemon Names"]
-        main_worksheet.update('A1:F1', [headers])
+        files = results.get('files', [])
         
-        # Format the header row
-        main_worksheet.format('A1:F1', {
-            'textFormat': {'bold': True},
-            'horizontalAlignment': 'CENTER',
-            'backgroundColor': {'red': 0.8, 'green': 0.8, 'blue': 0.8}
-        })
+        # Handle existing or new spreadsheet
+        if files:
+            # Use existing spreadsheet
+            spreadsheet_id = files[0]['id']
+            print(f"Found existing spreadsheet: {spreadsheet_name} (ID: {spreadsheet_id})")
+            
+            # Get information about existing sheets
+            spreadsheet_info = sheets_service.spreadsheets().get(spreadsheetId=spreadsheet_id).execute()
+            sheets = spreadsheet_info.get('sheets', [])
+            
+            if sheets:
+                # Use the first sheet - clear it instead of deleting
+                first_sheet = sheets[0]
+                sheet_id = first_sheet['properties']['sheetId']
+                sheet_title = first_sheet['properties']['title']
+                
+                # Clear the sheet content
+                sheets_service.spreadsheets().values().clear(
+                    spreadsheetId=spreadsheet_id,
+                    range=sheet_title
+                ).execute()
+                
+                # Rename the sheet if it's not already named "Trainer Data"
+                if sheet_title != "Trainer Data":
+                    sheets_service.spreadsheets().batchUpdate(
+                        spreadsheetId=spreadsheet_id,
+                        body={
+                            "requests": [{
+                                "updateSheetProperties": {
+                                    "properties": {
+                                        "sheetId": sheet_id,
+                                        "title": "Trainer Data"
+                                    },
+                                    "fields": "title"
+                                }
+                            }]
+                        }
+                    ).execute()
+                    sheet_title = "Trainer Data"
+                
+                # Delete any additional sheets (if there are more than one)
+                if len(sheets) > 1:
+                    batch_requests = []
+                    for sheet in sheets[1:]:  # Skip the first sheet
+                        batch_requests.append({
+                            "deleteSheet": {
+                                "sheetId": sheet['properties']['sheetId']
+                            }
+                        })
+                    
+                    if batch_requests:
+                        sheets_service.spreadsheets().batchUpdate(
+                            spreadsheetId=spreadsheet_id,
+                            body={"requests": batch_requests}
+                        ).execute()
+            else:
+                # This shouldn't happen, but just in case
+                print("Error: Spreadsheet exists but has no sheets")
+                return None
+                
+        else:
+            # Create a new spreadsheet with a custom sheet name
+            spreadsheet_body = {
+                'properties': {
+                    'title': spreadsheet_name
+                },
+                'sheets': [{
+                    'properties': {
+                        'title': 'Trainer Data'
+                    }
+                }]
+            }
+            
+            spreadsheet = sheets_service.spreadsheets().create(
+                body=spreadsheet_body
+            ).execute()
+            
+            spreadsheet_id = spreadsheet['spreadsheetId']
+            sheet_title = "Trainer Data"
+            print(f"Created new spreadsheet: {spreadsheet_name} (ID: {spreadsheet_id})")
         
-        # Prepare the data for the main worksheet
-        main_data = []
-        for trainer in trainer_data:
-            pokemon_names = ", ".join([p["name"] for p in trainer["pokemon"]])
-            main_data.append([
-                trainer["trainer_name"],
-                trainer["rank"],
-                trainer["rating"],
-                trainer["url"],
-                len(trainer["pokemon"]),
-                pokemon_names
-            ])
+        # Prepare data for upload
+        if not data:
+            print("Warning: No data to upload (empty JSON)")
+            return spreadsheet_id
+            
+        # Convert data to a format suitable for Sheets
+        if isinstance(data, list) and len(data) > 0:
+            # Get headers from the first item
+            headers = list(data[0].keys())
+            
+            # Create values array with headers as first row
+            values = [headers]
+            
+            # Add data rows
+            for item in data:
+                row = [item.get(header, '') for header in headers]
+                values.append(row)
+                
+        elif isinstance(data, dict):
+            # Handle dictionary data
+            headers = list(data.keys())
+            values = [headers, list(data.values())]
+        else:
+            print(f"Error: Unsupported data format. Expected list or dict, got {type(data)}")
+            return None
         
-        # Update the main worksheet with the data
-        if main_data:
-            main_worksheet.update(f'A2:F{len(main_data)+1}', main_data)
+        # Upload the data
+        result = sheets_service.spreadsheets().values().update(
+            spreadsheetId=spreadsheet_id,
+            range=f"Trainer Data!A1",
+            valueInputOption="RAW",
+            body={"values": values}
+        ).execute()
         
-        # Create a detailed worksheet for Pokémon data
-        pokemon_worksheet = spreadsheet.add_worksheet(title="Pokemon Details", rows=1000, cols=15)
+        # Format the header row (make it bold)
+        sheets_service.spreadsheets().batchUpdate(
+            spreadsheetId=spreadsheet_id,
+            body={
+                "requests": [{
+                    "repeatCell": {
+                        "range": {
+                            "sheetId": 0,
+                            "startRowIndex": 0,
+                            "endRowIndex": 1
+                        },
+                        "cell": {
+                            "userEnteredFormat": {
+                                "textFormat": {
+                                    "bold": True
+                                }
+                            }
+                        },
+                        "fields": "userEnteredFormat.textFormat.bold"
+                    }
+                }]
+            }
+        ).execute()
         
-        # Set up the header row for the Pokémon worksheet
-        pokemon_headers = ["Trainer Name", "Pokemon Name", "Ability", "Item", "Tera Type", 
-                          "Nature", "Moves", "HP", "Atk", "Def", "SpA", "SpD", "Spe"]
-        pokemon_worksheet.update('A1:M1', [pokemon_headers])
+        print(f"Successfully uploaded data to Google Sheets: {len(values)-1} rows of data")
+        print(f"Spreadsheet URL: https://docs.google.com/spreadsheets/d/{spreadsheet_id}")
+        return spreadsheet_id
         
-        # Format the header row
-        pokemon_worksheet.format('A1:M1', {
-            'textFormat': {'bold': True},
-            'horizontalAlignment': 'CENTER',
-            'backgroundColor': {'red': 0.8, 'green': 0.8, 'blue': 0.8}
-        })
-        
-        # Prepare the data for the Pokémon worksheet
-        pokemon_data = []
-        for trainer in trainer_data:
-            for pokemon in trainer["pokemon"]:
-                moves_str = ", ".join(pokemon["moves"])
-                pokemon_data.append([
-                    trainer["trainer_name"],
-                    pokemon["name"],
-                    pokemon["ability"],
-                    pokemon["item"],
-                    pokemon["tera_type"],
-                    pokemon["nature"],
-                    moves_str,
-                    pokemon["evs"]["H"],
-                    pokemon["evs"]["A"],
-                    pokemon["evs"]["B"],
-                    pokemon["evs"]["C"],
-                    pokemon["evs"]["D"],
-                    pokemon["evs"]["S"]
-                ])
-        
-        # Update the Pokémon worksheet with the data
-        if pokemon_data:
-            pokemon_worksheet.update(f'A2:M{len(pokemon_data)+1}', pokemon_data)
-        
-        # Resize columns to fit content
-        for worksheet in [main_worksheet, pokemon_worksheet]:
-            for i in range(1, worksheet.col_count + 1):
-                worksheet.columns_auto_resize(i-1, i)
-        
-        print(f"Successfully uploaded data to Google Spreadsheet: {spreadsheet_name}")
-        print(f"Spreadsheet URL: https://docs.google.com/spreadsheets/d/{spreadsheet.id}")
-        
+    except HttpError as error:
+        print(f"Error uploading to Google Sheets: {error.resp.status} {error.content.decode('utf-8')}")
+        return None
     except Exception as e:
-        print(f"Error uploading to Google Sheets: {str(e)}")
+        print(f"Error: {type(e).__name__}: {str(e)}")
+        return None
 
+# Example usage
 if __name__ == "__main__":
-    import argparse
-    
-    parser = argparse.ArgumentParser(description='Upload trainer data to Google Sheets')
-    parser.add_argument('--json', default='trainer_data.json', help='Path to the JSON file')
-    parser.add_argument('--spreadsheet', default='Pokemon SV Trainer Data', help='Name of the Google Spreadsheet')
-    parser.add_argument('--credentials', default='credentials.json', help='Path to the Google API credentials file')
-    
-    args = parser.parse_args()
-    
-    upload_to_sheets(args.json, args.spreadsheet, args.credentials) 
+    upload_to_sheets(
+        "trainer_data.json",
+        "Pokemon SV Trainer Data",
+        "credentials.json"
+    ) 

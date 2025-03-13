@@ -61,8 +61,29 @@ This project scrapes trainer data from the sv.pokedb.tokyo website and external 
    ```
    pip install -r requirements.txt
    ```
+   
+   Or use the provided batch file (Windows) / または提供されているバッチファイルを使用（Windows）:
+   ```
+   install_deps.bat
+   ```
 
 ## Usage / 使用方法
+
+### Quick Start / クイックスタート
+
+For Windows users, you can use the interactive menu to run the project:
+
+```
+run_project.bat
+```
+
+This will present a menu with options to:
+1. Install dependencies
+2. Test Google Sheets API connection
+3. Run scraper with default settings
+4. Run scraper with custom settings
+5. Upload existing data to Google Sheets
+6. Run GUI application
 
 ### Basic Usage / 基本的な使用方法
 
@@ -128,6 +149,7 @@ To upload data to Google Sheets / Google Sheetsにデータをアップロード
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/) / [Google Cloudコンソール](https://console.cloud.google.com/)にアクセス
 2. Create a new project / 新しいプロジェクトを作成
 3. Enable the Google Sheets API and Google Drive API / Google Sheets APIとGoogle Drive APIを有効にする
+   - **Important**: You must enable BOTH the Google Sheets API and Google Drive API / **重要**: Google Sheets APIとGoogle Drive APIの両方を有効にする必要があります
 4. Create a service account / サービスアカウントを作成
 5. Download the JSON key file / JSONキーファイルをダウンロード
 6. Use the `create_credentials.py` script to set up your credentials / `create_credentials.py`スクリプトを使用して認証情報を設定
@@ -135,13 +157,23 @@ To upload data to Google Sheets / Google Sheetsにデータをアップロード
 
 #### Testing Google Sheets Integration / Google Sheets連携のテスト
 
-You can test your Google Sheets integration with the `test_sheets.py` script / `test_sheets.py`スクリプトでGoogle Sheets連携をテストできます:
+You can test your Google Sheets integration with the following scripts:
 
-```
-python test_sheets.py
-```
+1. **Test Connection** - Test basic connectivity to Google APIs:
+   ```
+   python test_connection.py
+   ```
+   Or use the batch file (Windows):
+   ```
+   test_connection.bat
+   ```
 
-This script will check if your credentials are valid and try to upload the data to a test spreadsheet / このスクリプトは認証情報が有効かどうかを確認し、テストスプレッドシートにデータをアップロードしようとします。
+2. **Test Sheets Upload** - Test uploading data to a test spreadsheet:
+   ```
+   python test_sheets.py
+   ```
+
+These scripts will help diagnose any issues with your Google API setup and provide detailed error information.
 
 ## Output Format / 出力形式
 

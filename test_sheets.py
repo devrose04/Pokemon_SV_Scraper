@@ -31,7 +31,8 @@ def main():
     # Try to upload to Google Sheets
     try:
         print("Testing Google Sheets integration...")
-        upload_to_sheets('trainer_data.json', 'Pokemon SV Trainer Data Test')
+        print("Testing connection to Google Sheets API with credentials file:", os.path.abspath('credentials.json'))
+        upload_to_sheets('trainer_data.json', 'Pokemon SV Trainer Data Test', 'credentials.json')
         return 0
     except Exception as e:
         print(f"Error: {str(e)}")
