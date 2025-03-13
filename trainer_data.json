@@ -1,730 +1,688 @@
 [
   {
-    "trainer_name": "【S27最終1位】最強霧払いループ - アイデアノート",
-    "rank": "1",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "ラウドボーン",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヒードラン",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://orion-poke.hatenablog.com/entry/2025/03/03/170020"
+    "rank": 1,
+    "rating": 2174,
+    "trainer_name": "2174|アスノヨゾラ",
+    "article_url": "https://orion-poke.hatenablog.com/entry/2025/03/03/170020",
+    "pokemon": []
   },
   {
-    "trainer_name": "【ポケモンSV 　S27 最終5位】未来対面サイクル - ビッパの構築記事",
-    "rank": "N/A",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://bippa-poke.hatenablog.com/entry/2025/03/02/150958"
+    "rank": 5,
+    "rating": 2136,
+    "trainer_name": "2136|ビッパ",
+    "article_url": "https://bippa-poke.hatenablog.com/entry/2025/03/02/150958",
+    "pokemon": []
   },
   {
-    "trainer_name": "【S27最終7位】アーラカイリュー極 - Origin Regression",
-    "rank": "7",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://mega-salamance.hatenablog.com/entry/2025/03/01/205656"
+    "rank": 7,
+    "rating": 2128,
+    "trainer_name": "2128|スカーレット",
+    "article_url": "https://mega-salamance.hatenablog.com/entry/2025/03/01/205656",
+    "pokemon": []
   },
   {
-    "trainer_name": "【S27最終10位/レート2121】｜モーガン",
-    "rank": "10",
-    "rating": "2121",
-    "pokemon": [
-      {
-        "name": "ラウドボーン",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "サーフゴー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://note.com/pokemons2/n/n054de1215fff"
+    "rank": 10,
+    "rating": 2121,
+    "trainer_name": "2121|ヘルメッポ",
+    "article_url": "https://note.com/pokemons2/n/n054de1215fff",
+    "pokemon": []
   },
   {
-    "trainer_name": "S26 最終19位 レート2088 バド カイ ガポン ディン カミ ウーラ - irohasu28のブログ",
-    "rank": "N/A",
-    "rating": "2088",
-    "pokemon": [
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://irohasu28.hatenadiary.com/entry/2025/03/01/225727"
+    "rank": 19,
+    "rating": 2088,
+    "trainer_name": "2088|キャル",
+    "article_url": "https://irohasu28.hatenadiary.com/entry/2025/03/01/225727",
+    "pokemon": []
   },
   {
-    "trainer_name": "【s27 最終23位 レート2071】紅蓮の古来と燦々たる神 - ドヒドナット",
-    "rank": "N/A",
-    "rating": "2071",
-    "pokemon": [
-      {
-        "name": "レックウザ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ラウドボーン",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://dohidonatto.hatenablog.com/entry/2025/03/02/190540"
+    "rank": 23,
+    "rating": 2071,
+    "trainer_name": "2071|俺出現神呆然(CHS)",
+    "article_url": "https://dohidonatto.hatenablog.com/entry/2025/03/02/190540",
+    "pokemon": []
   },
   {
-    "trainer_name": "【S27最終24位】でたらめ黒馬【SVシングル】｜あいまる",
-    "rank": "24",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ゴリランダー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://note.com/aimaru4218/n/n715973ffc9a3"
+    "rank": 24,
+    "rating": 2070,
+    "trainer_name": "2070|Detaramechan(ENG)",
+    "article_url": "https://note.com/aimaru4218/n/n715973ffc9a3",
+    "pokemon": []
   },
   {
-    "trainer_name": " S27  最終27位  最強塩神故勒 - 懺悔室",
-    "rank": "N/A",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "ミミッキュ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://zangezangezange.hatenablog.com/entry/2025/03/02/025243"
+    "rank": 27,
+    "rating": 2066,
+    "trainer_name": "2066|AIKU",
+    "article_url": "https://zangezangezange.hatenablog.com/entry/2025/03/02/025243",
+    "pokemon": []
   },
   {
-    "trainer_name": "SVS27 ストレスフリーミライドン弐式 最終28位 R2065 - 記事まとめ",
-    "rank": "N/A",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "ミミッキュ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ルカリオ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "テツノブジン",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ゴリランダー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://norunpoke.hatenablog.com/entry/2025/02/28/080352"
+    "rank": 28,
+    "rating": 2065,
+    "trainer_name": "2065|アップルくん",
+    "article_url": "https://norunpoke.hatenablog.com/entry/2025/02/28/080352",
+    "pokemon": []
   },
   {
-    "trainer_name": "不滅の象徴｜たなってら",
-    "rank": "N/A",
-    "rating": "N/A",
-    "pokemon": [
-      {
-        "name": "カイリュー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ヘイラッシャ",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ランドロス",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      },
-      {
-        "name": "ゴリランダー",
-        "ability": "不明",
-        "item": "不明",
-        "tera_type": "不明",
-        "nature": "不明",
-        "moves": [
-          "不明"
-        ],
-        "evs": {
-          "H": "0",
-          "A": "0",
-          "B": "0",
-          "C": "0",
-          "D": "0",
-          "S": "0"
-        }
-      }
-    ],
-    "url": "https://note.com/just_crane9691/n/n2c2966ccad7a"
+    "rank": 29,
+    "rating": 2064,
+    "trainer_name": "2064|じんじん",
+    "article_url": "https://note.com/just_crane9691/n/n2c2966ccad7a",
+    "pokemon": []
+  },
+  {
+    "rank": 30,
+    "rating": 2064,
+    "trainer_name": "2064|中野二乃(CHS)",
+    "article_url": "https://eff4dckeqm1cwsf.hatenablog.com/entry/2025/03/02/111422",
+    "pokemon": []
+  },
+  {
+    "rank": 32,
+    "rating": 2061,
+    "trainer_name": "2061|ギルガルド",
+    "article_url": "https://note.com/famous_crocus111/n/n203e3fd967ac",
+    "pokemon": []
+  },
+  {
+    "rank": 33,
+    "rating": 2060,
+    "trainer_name": "2060|スカーレット",
+    "article_url": "https://densonrainy.hatenablog.com/entry/2025/03/02/194500",
+    "pokemon": []
+  },
+  {
+    "rank": 34,
+    "rating": 2058,
+    "trainer_name": "2058|わたぼう",
+    "article_url": "https://watabou828poke.hatenablog.com/entry/2025/03/01/225122",
+    "pokemon": []
+  },
+  {
+    "rank": 35,
+    "rating": 2055,
+    "trainer_name": "2055|するめひめ",
+    "article_url": "https://ika0000.hatenablog.jp/entry/2025/03/03/033351",
+    "pokemon": []
+  },
+  {
+    "rank": 37,
+    "rating": 2053,
+    "trainer_name": "2053|ちゃこすけ",
+    "article_url": "https://yossysan.hateblo.jp/entry/2025/03/01/142134",
+    "pokemon": []
+  },
+  {
+    "rank": 39,
+    "rating": 2053,
+    "trainer_name": "2053|ローライト",
+    "article_url": "https://note.com/a_a391/n/n10445a598455",
+    "pokemon": []
+  },
+  {
+    "rank": 41,
+    "rating": 2051,
+    "trainer_name": "2051|PH",
+    "article_url": "https://phpoke.hatenablog.com/entry/2025/03/03/121521",
+    "pokemon": []
+  },
+  {
+    "rank": 43,
+    "rating": 2050,
+    "trainer_name": "2050|アップルパイ",
+    "article_url": "https://yama1610.hatenadiary.com/entry/2025/03/02/114558",
+    "pokemon": []
+  },
+  {
+    "rank": 45,
+    "rating": 2049,
+    "trainer_name": "2049|ヴェンデッタ",
+    "article_url": "https://ukeruichigo.hatenablog.com/entry/2025/03/02/001300",
+    "pokemon": []
+  },
+  {
+    "rank": 47,
+    "rating": 2049,
+    "trainer_name": "2049|スカーレット",
+    "article_url": "https://m14zz.hatenablog.com/entry/2025/03/02/125523",
+    "pokemon": []
+  },
+  {
+    "rank": 49,
+    "rating": 2048,
+    "trainer_name": "2048|運だけの春日(CHT)",
+    "article_url": "https://poke-amane98.hatenablog.com/entry/2025/03/02/132846",
+    "pokemon": []
+  },
+  {
+    "rank": 50,
+    "rating": 2046,
+    "trainer_name": "2046|バイオレット",
+    "article_url": "https://claris-bradbury.hatenablog.com/entry/2025/03/01/%E3%80%90SV_S27%E6%9C%80%E7%B5%8250%E4%BD%8D%E3%80%91%E9%80%86%E3%81%95%E3%82%A2%E3%83%89%E3%83%A9%E3%83%BC%E3%81%AE%E8%AA%A4%E8%AC%AC%E6%8E%A8%E7%90%86",
+    "pokemon": []
+  },
+  {
+    "rank": 53,
+    "rating": 2045,
+    "trainer_name": "2045|ユウナギ",
+    "article_url": "https://mirai-minyato.blog.jp/archives/94829415.html",
+    "pokemon": []
+  },
+  {
+    "rank": 55,
+    "rating": 2045,
+    "trainer_name": "2045|なつめ",
+    "article_url": "https://tagerau.hatenablog.com/entry/2025/03/01/141244",
+    "pokemon": []
+  },
+  {
+    "rank": 59,
+    "rating": 2044,
+    "trainer_name": "2044|バイオレット",
+    "article_url": "https://rei-poke0728new.hatenablog.com/entry/2025/02/24/231132",
+    "pokemon": []
+  },
+  {
+    "rank": 60,
+    "rating": 2043,
+    "trainer_name": "2043|AKVきのこ",
+    "article_url": "https://koabouhosinoityarabu8888.hateblo.jp/entry/2025/03/02/104928",
+    "pokemon": []
+  },
+  {
+    "rank": 63,
+    "rating": 2042,
+    "trainer_name": "2042|ヴァイオ",
+    "article_url": "https://teketeke007.hatenablog.com/entry/2025/03/01/183123",
+    "pokemon": []
+  },
+  {
+    "rank": 65,
+    "rating": 2041,
+    "trainer_name": "2041|バイオレット",
+    "article_url": "https://omu-dreamer.hatenablog.com/entry/2025/03/06/215145",
+    "pokemon": []
+  },
+  {
+    "rank": 69,
+    "rating": 2040,
+    "trainer_name": "2040|くろっきー",
+    "article_url": "https://paov8i5qwu0dwvn.hatenablog.com/entry/2025/03/01/154453",
+    "pokemon": []
+  },
+  {
+    "rank": 71,
+    "rating": 2039,
+    "trainer_name": "2039|sh",
+    "article_url": "https://shihapokeblog.hatenadiary.jp/entry/2025/03/01/204754",
+    "pokemon": []
+  },
+  {
+    "rank": 72,
+    "rating": 2039,
+    "trainer_name": "2039|サトシ",
+    "article_url": "https://yakkun.com/bbs/party/n6351",
+    "pokemon": []
+  },
+  {
+    "rank": 81,
+    "rating": 2035,
+    "trainer_name": "2035|あらたま",
+    "article_url": "https://note.com/odayakadeareyo2/n/na5c26ac5da93",
+    "pokemon": []
+  },
+  {
+    "rank": 82,
+    "rating": 2035,
+    "trainer_name": "2035|しゅん",
+    "article_url": "https://yakkun.com/bbs/party/n6356",
+    "pokemon": []
+  },
+  {
+    "rank": 84,
+    "rating": 2034,
+    "trainer_name": "2034|Unmei?",
+    "article_url": "https://mogamitu.hatenablog.com/entry/2025/03/02/121508",
+    "pokemon": []
+  },
+  {
+    "rank": 85,
+    "rating": 2034,
+    "trainer_name": "2034|おタマ",
+    "article_url": "https://wkaji.hatenablog.com/entry/2025/03/01/213131",
+    "pokemon": []
+  },
+  {
+    "rank": 86,
+    "rating": 2034,
+    "trainer_name": "2034|ぽんチョ.",
+    "article_url": "https://popopopon-cho.hatenablog.com/entry/2025/03/02/223128",
+    "pokemon": []
+  },
+  {
+    "rank": 87,
+    "rating": 2034,
+    "trainer_name": "2034|青き此方(CHT)",
+    "article_url": "https://kagemiya3.hatenablog.com/entry/2025/03/01/232523",
+    "pokemon": []
+  },
+  {
+    "rank": 91,
+    "rating": 2033,
+    "trainer_name": "2033|Arlecchino(ENG)",
+    "article_url": "https://aosanfn2525.hatenablog.com/entry/2025/03/04/210211",
+    "pokemon": []
+  },
+  {
+    "rank": 92,
+    "rating": 2032,
+    "trainer_name": "2032|yu",
+    "article_url": "https://yu-0129.hatenablog.jp/entry/2025/03/03/030609",
+    "pokemon": []
+  },
+  {
+    "rank": 93,
+    "rating": 2032,
+    "trainer_name": "2032|アイギス",
+    "article_url": "https://j99hf.hatenablog.jp/entry/2025/03/03/002239",
+    "pokemon": []
+  },
+  {
+    "rank": 97,
+    "rating": 2031,
+    "trainer_name": "2031|バンブー",
+    "article_url": "https://bamboopoke.hatenablog.com/entry/2025/02/26/131650",
+    "pokemon": []
+  },
+  {
+    "rank": 101,
+    "rating": 2030,
+    "trainer_name": "2030|たみにゃす",
+    "article_url": "https://tamiminzemi.hatenablog.com/entry/2025/03/01/153051",
+    "pokemon": []
+  },
+  {
+    "rank": 105,
+    "rating": 2022,
+    "trainer_name": "2022|U",
+    "article_url": "https://flatpoke2023.hatenadiary.com/entry/2025/03/01/102028",
+    "pokemon": []
+  },
+  {
+    "rank": 108,
+    "rating": 2020,
+    "trainer_name": "2020|木星(CHT)",
+    "article_url": "https://note.com/jasmine2015/n/n19b0a9529389",
+    "pokemon": []
+  },
+  {
+    "rank": 112,
+    "rating": 2015,
+    "trainer_name": "2015|まりるり",
+    "article_url": "https://munouyama.hatenablog.com/entry/2025/03/01/182419",
+    "pokemon": []
+  },
+  {
+    "rank": 113,
+    "rating": 2014,
+    "trainer_name": "2014|Phantasmoon(ENG)",
+    "article_url": "https://tak-sword.hatenablog.com/entry/2025/03/01/101855",
+    "pokemon": []
+  },
+  {
+    "rank": 116,
+    "rating": 2013,
+    "trainer_name": "2013|アキ",
+    "article_url": "https://aki6060.hatenablog.com/entry/2025/03/02/172349",
+    "pokemon": []
+  },
+  {
+    "rank": 123,
+    "rating": 2010,
+    "trainer_name": "2010|husky",
+    "article_url": "https://roka-poke.hatenablog.com/entry/2025/03/02/124741",
+    "pokemon": []
+  },
+  {
+    "rank": 124,
+    "rating": 2010,
+    "trainer_name": "2010|あさばん",
+    "article_url": "https://yakkun.com/bbs/party/n6348",
+    "pokemon": []
+  },
+  {
+    "rank": 126,
+    "rating": 2009,
+    "trainer_name": "2009|ひろ",
+    "article_url": "https://foooka.hatenablog.com/entry/2025/03/02/195744",
+    "pokemon": []
+  },
+  {
+    "rank": 127,
+    "rating": 2008,
+    "trainer_name": "2008|ピロスケ",
+    "article_url": "https://pillosuke.hatenablog.com/entry/2025/03/02/035004",
+    "pokemon": []
+  },
+  {
+    "rank": 128,
+    "rating": 2008,
+    "trainer_name": "2008|可能性の果て(CHT)",
+    "article_url": "https://rejendo54321.hatenablog.com/entry/2025/03/04/010423",
+    "pokemon": []
+  },
+  {
+    "rank": 133,
+    "rating": 2008,
+    "trainer_name": "2008|ノブ",
+    "article_url": "http://rplnobu.blog.fc2.com/blog-entry-218.html",
+    "pokemon": []
+  },
+  {
+    "rank": 139,
+    "rating": 2007,
+    "trainer_name": "2007|株式投資の王(CHT)",
+    "article_url": "https://kabushiking.hatenablog.com/entry/2025/03/01/212112",
+    "pokemon": []
+  },
+  {
+    "rank": 140,
+    "rating": 2006,
+    "trainer_name": "2006|ぬすし",
+    "article_url": "https://note.com/nusushi0524/n/ne185e156e2e0",
+    "pokemon": []
+  },
+  {
+    "rank": 142,
+    "rating": 2005,
+    "trainer_name": "2005|マッキー",
+    "article_url": "https://makki-poke.hatenablog.com/entry/2025/03/01/103300",
+    "pokemon": []
+  },
+  {
+    "rank": 145,
+    "rating": 2005,
+    "trainer_name": "2005|よざくら",
+    "article_url": "https://note.com/3onto/n/na85a8d7a7f4e",
+    "pokemon": []
+  },
+  {
+    "rank": 149,
+    "rating": 2004,
+    "trainer_name": "2004|maru",
+    "article_url": "https://marunpoke.hatenablog.com/entry/2025/03/01/122125",
+    "pokemon": []
+  },
+  {
+    "rank": 151,
+    "rating": 2001,
+    "trainer_name": "2001|るい",
+    "article_url": "https://yatorukun.hatenablog.com/entry/2025/02/25/091306",
+    "pokemon": []
+  },
+  {
+    "rank": 152,
+    "rating": 2000,
+    "trainer_name": "2000|タカヒロ",
+    "article_url": "https://sunset9696.blog.fc2.com/blog-entry-6.html",
+    "pokemon": []
+  },
+  {
+    "rank": 155,
+    "rating": 2000,
+    "trainer_name": "2000|ティオすけ",
+    "article_url": "https://yamamatsuri8683.hatenablog.com/entry/2025/03/01/155016",
+    "pokemon": []
+  },
+  {
+    "rank": 162,
+    "rating": 1997,
+    "trainer_name": "1997|ちかた",
+    "article_url": "https://siere.hatenablog.jp/entry/2025/03/01/180700",
+    "pokemon": []
+  },
+  {
+    "rank": 167,
+    "rating": 1991,
+    "trainer_name": "1991|かりょうてん",
+    "article_url": "https://m4hkmqy0esbsqvb.hatenablog.com/entry/2025/03/02/182909",
+    "pokemon": []
+  },
+  {
+    "rank": 178,
+    "rating": 1983,
+    "trainer_name": "1983|わかば",
+    "article_url": "https://yakkun.com/bbs/party/n6358",
+    "pokemon": []
+  },
+  {
+    "rank": 180,
+    "rating": 1982,
+    "trainer_name": "1982|バイオレット",
+    "article_url": "https://shuteee.hatenablog.com/entry/2025/03/03/180412",
+    "pokemon": []
+  },
+  {
+    "rank": 186,
+    "rating": 1976,
+    "trainer_name": "1976|赤司 征十郎(CHT)",
+    "article_url": "https://yukiyukipokemon.hatenablog.com/entry/2025/03/02/084556",
+    "pokemon": []
+  },
+  {
+    "rank": 189,
+    "rating": 1974,
+    "trainer_name": "1974|妲己(CHT)",
+    "article_url": "https://minrai525.hatenablog.com/entry/2025/03/01/212132",
+    "pokemon": []
+  },
+  {
+    "rank": 193,
+    "rating": 1972,
+    "trainer_name": "1972|スコール",
+    "article_url": "https://squallpokemon.hatenablog.com/entry/2025/03/03/225307",
+    "pokemon": []
+  },
+  {
+    "rank": 201,
+    "rating": 1967,
+    "trainer_name": "1967|マブシ",
+    "article_url": "https://mabusi.hatenablog.com/entry/2025/03/04/153034",
+    "pokemon": []
+  },
+  {
+    "rank": 205,
+    "rating": 1965,
+    "trainer_name": "1965|バイオレット",
+    "article_url": "https://note.com/mi_mori_hawksfan/n/n2e9b71777f61",
+    "pokemon": []
+  },
+  {
+    "rank": 208,
+    "rating": 1964,
+    "trainer_name": "1964|トウマ",
+    "article_url": "https://toumapoke.hatenablog.com/entry/2025/03/04/004024",
+    "pokemon": []
+  },
+  {
+    "rank": 217,
+    "rating": 1962,
+    "trainer_name": "1962|Tomoya",
+    "article_url": "https://tomopi.hatenadiary.com/entry/2025/03/01/102228",
+    "pokemon": []
+  },
+  {
+    "rank": 220,
+    "rating": 1962,
+    "trainer_name": "1962|あたか",
+    "article_url": "https://ataka-dog.hatenablog.com/entry/2025/03/01/172856",
+    "pokemon": []
+  },
+  {
+    "rank": 231,
+    "rating": 1959,
+    "trainer_name": "1959|わたあめ",
+    "article_url": "https://wataame480.hatenablog.com/entry/2025/03/04/210544",
+    "pokemon": []
+  },
+  {
+    "rank": 234,
+    "rating": 1958,
+    "trainer_name": "1958|Monita",
+    "article_url": "https://moni7t.hatenadiary.com/entry/2025/03/02/170923",
+    "pokemon": []
+  },
+  {
+    "rank": 241,
+    "rating": 1956,
+    "trainer_name": "1956|やすひら",
+    "article_url": "https://yasuhira75.hatenablog.com/entry/2025/03/02/191323",
+    "pokemon": []
+  },
+  {
+    "rank": 252,
+    "rating": 1951,
+    "trainer_name": "1951|スカーレット",
+    "article_url": "https://kek1.hatenablog.com/entry/2025/03/03/211926",
+    "pokemon": []
+  },
+  {
+    "rank": 258,
+    "rating": 1950,
+    "trainer_name": "1950|ながいみのる",
+    "article_url": "https://hamuhax.hatenablog.com/entry/2025/03/01/103357",
+    "pokemon": []
+  },
+  {
+    "rank": 275,
+    "rating": 1947,
+    "trainer_name": "1947|Kurumi Wendy(ENG)",
+    "article_url": "https://greyninja.hatenablog.com/entry/2025/03/03/120643",
+    "pokemon": []
+  },
+  {
+    "rank": 283,
+    "rating": 1945,
+    "trainer_name": "1945|德・健・财(CHS)",
+    "article_url": "https://kimico114514.hatenablog.com/entry/2025/03/02/123437",
+    "pokemon": []
+  },
+  {
+    "rank": 292,
+    "rating": 1943,
+    "trainer_name": "1943|スカーレット",
+    "article_url": "https://yakkun.com/bbs/party/n6354",
+    "pokemon": []
+  },
+  {
+    "rank": 298,
+    "rating": 1941,
+    "trainer_name": "1941|すずめ",
+    "article_url": "https://note.com/heavysplatling/n/n4debb5c9f96f",
+    "pokemon": []
+  },
+  {
+    "rank": 313,
+    "rating": 1936,
+    "trainer_name": "1936|はるしお",
+    "article_url": "https://harushi0.hatenablog.com/entry/2025/03/01/212251",
+    "pokemon": []
+  },
+  {
+    "rank": 359,
+    "rating": 1920,
+    "trainer_name": "1920|やっすん",
+    "article_url": "https://yassunpokemon.hatenablog.com/entry/2025/03/01/235627",
+    "pokemon": []
+  },
+  {
+    "rank": 361,
+    "rating": 1920,
+    "trainer_name": "1920|Violet(KOR)",
+    "article_url": "https://m.dcinside.com/board/pokemon/11825156",
+    "pokemon": []
+  },
+  {
+    "rank": 365,
+    "rating": 1918,
+    "trainer_name": "1918|夏の砂時計(CHT)",
+    "article_url": "https://note.com/shiny_hare288/n/n5a6c0f1eece1",
+    "pokemon": []
+  },
+  {
+    "rank": 375,
+    "rating": 1916,
+    "trainer_name": "1916|スカーレット",
+    "article_url": "https://iseapoke.hatenablog.com/entry/2025/03/01/143049",
+    "pokemon": []
+  },
+  {
+    "rank": 392,
+    "rating": 1913,
+    "trainer_name": "1913|daa",
+    "article_url": "https://daapoke.hatenablog.com/entry/2025/03/02/093710",
+    "pokemon": []
+  },
+  {
+    "rank": 396,
+    "rating": 1913,
+    "trainer_name": "1913|Sui",
+    "article_url": "https://suirenbani.hatenablog.com/entry/2025/03/08/220527",
+    "pokemon": []
+  },
+  {
+    "rank": 398,
+    "rating": 1913,
+    "trainer_name": "1913|カジ",
+    "article_url": "https://marutapoke-376.hatenablog.com/entry/2025/03/01/042512",
+    "pokemon": []
+  },
+  {
+    "rank": 399,
+    "rating": 1913,
+    "trainer_name": "1913|ルナ",
+    "article_url": "https://note.com/luna_iloha/n/na58f2401a28e",
+    "pokemon": []
+  },
+  {
+    "rank": 401,
+    "rating": 1912,
+    "trainer_name": "1912|こうちゃん",
+    "article_url": "https://hashige.hatenadiary.jp/entry/2025/03/01/104148",
+    "pokemon": []
+  },
+  {
+    "rank": 405,
+    "rating": 1911,
+    "trainer_name": "1911|オルテンシア",
+    "article_url": "https://lucifer-poke.hatenablog.com/entry/2025/03/01/115032",
+    "pokemon": []
+  },
+  {
+    "rank": 418,
+    "rating": 1909,
+    "trainer_name": "1909|コバルト",
+    "article_url": "https://kobarutooo.hatenablog.com/entry/2025/03/01/152903",
+    "pokemon": []
+  },
+  {
+    "rank": 423,
+    "rating": 1909,
+    "trainer_name": "1909|Sumn(ENG)",
+    "article_url": "https://youtu.be/j7ZFTXwNwBs",
+    "pokemon": []
+  },
+  {
+    "rank": 428,
+    "rating": 1909,
+    "trainer_name": "1909|やがみ",
+    "article_url": "https://yagami-ri.hatenablog.com/entry/2025/03/02/113519",
+    "pokemon": []
+  },
+  {
+    "rank": 433,
+    "rating": 1908,
+    "trainer_name": "1908|ショウガ",
+    "article_url": "https://note.com/42051095/n/neab25da001ab",
+    "pokemon": []
   }
 ]

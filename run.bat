@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-echo Pokemon SV Uploader - Building Executable...
+echo Pokemon SV Uploader - Starting...
 
 REM Check if Python is installed
 python --version > nul 2>&1
@@ -40,19 +40,16 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
-REM Build the executable
-echo Building executable...
-python build_exe.py
+REM Run the application
+echo Starting Pokemon SV Uploader...
+python pokemon_sv_uploader.py
 if %ERRORLEVEL% NEQ 0 (
-    echo Error: Failed to build executable.
+    echo Error: Application exited with an error.
     pause
-    exit /b 1
 )
 
 REM Deactivate virtual environment
 call deactivate
 
-echo Build completed! You can find the executable in the 'dist' directory.
-echo.
-echo Remember to copy credentials.json to the same directory as the executable.
+echo Done.
 pause 

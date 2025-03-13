@@ -1,10 +1,73 @@
 import json
 import os
+import socket
+import sys
+import time
+import tkinter as tk
+from tkinter import messagebox
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-def upload_to_sheets(json_file_path, spreadsheet_name, credentials_file):
+def show_message(message, is_error=False):
+    """Show a message box instead of using input() for GUI applications"""
+    try:
+        # Only create root if it doesn't exist
+        root = tk.Tk()
+        root.withdraw()  # Hide the main window
+        
+        if is_error:
+            messagebox.showerror("Error", message)
+        else:
+            messagebox.showinfo("Information", message)
+            
+        root.destroy()
+    except Exception as e:
+        # Fallback to console if tkinter fails
+        print(message)
+        try:
+            input("Press Enter to continue...")
+        except:
+            pass
+
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path)
+
+def safe_api_call(func, error_message="API call failed", max_retries=2):
+    """
+    Safely execute an API call with retry logic
+    
+    Args:
+        func: Function to call
+        error_message: Message to display on error
+        max_retries: Maximum number of retry attempts
+        
+    Returns:
+        The result of the function call, or None if it fails
+    """
+    for attempt in range(max_retries + 1):
+        try:
+            return func()
+        except (ConnectionResetError, socket.timeout) as e:
+            if attempt < max_retries:
+                wait_time = 2 ** attempt
+                print(f"Connection error: {str(e)}. Retrying in {wait_time} seconds...")
+                time.sleep(wait_time)
+            else:
+                print(f"{error_message}: {str(e)}")
+                return None
+        except Exception as e:
+            print(f"{error_message}: {type(e).__name__}: {str(e)}")
+            return None
+
+def upload_to_sheets(json_file_path, spreadsheet_name, credentials_file, spreadsheet_id=None):
     """
     Upload JSON data to Google Sheets
     
@@ -12,18 +75,30 @@ def upload_to_sheets(json_file_path, spreadsheet_name, credentials_file):
         json_file_path (str): Path to the JSON data file to upload
         spreadsheet_name (str): Name of the Google Sheets document
         credentials_file (str): Path to the Google API credentials JSON file
+        spreadsheet_id (str, optional): Specific Google Sheets ID to use
     
     Returns:
         str: Spreadsheet ID if successful, None otherwise
     """
     try:
+        # Set a longer timeout for socket operations
+        socket.setdefaulttimeout(60)
+        
+        # Get absolute paths for resources
+        json_file_path = get_resource_path(json_file_path)
+        credentials_file = get_resource_path(credentials_file)
+        
         # Verify files exist
         if not os.path.exists(credentials_file):
-            print(f"Error: Credentials file not found at {credentials_file}")
+            error_msg = f"Error: credentials.json not found at {credentials_file}"
+            print(error_msg)
+            show_message(error_msg, is_error=True)
             return None
             
         if not os.path.exists(json_file_path):
-            print(f"Error: JSON data file not found at {json_file_path}")
+            error_msg = f"Error: trainer_data.json not found at {json_file_path}"
+            print(error_msg)
+            show_message(error_msg, is_error=True)
             return None
         
         # Load JSON data
@@ -37,173 +112,127 @@ def upload_to_sheets(json_file_path, spreadsheet_name, credentials_file):
                    'https://www.googleapis.com/auth/drive']
         )
         
-        # Build the services
-        sheets_service = build('sheets', 'v4', credentials=credentials)
-        drive_service = build('drive', 'v3', credentials=credentials)
+        # Build the services with cache_discovery=False to avoid connection issues
+        sheets_service = build('sheets', 'v4', credentials=credentials, cache_discovery=False)
         
-        # Check if spreadsheet already exists
-        results = drive_service.files().list(
-            q=f"name='{spreadsheet_name}' and mimeType='application/vnd.google-apps.spreadsheet'",
-            spaces='drive',
-            fields='files(id, name)'
-        ).execute()
-        
-        files = results.get('files', [])
-        
-        # Handle existing or new spreadsheet
-        if files:
-            # Use existing spreadsheet
-            spreadsheet_id = files[0]['id']
-            print(f"Found existing spreadsheet: {spreadsheet_name} (ID: {spreadsheet_id})")
-            
-            # Get information about existing sheets
-            spreadsheet_info = sheets_service.spreadsheets().get(spreadsheetId=spreadsheet_id).execute()
-            sheets = spreadsheet_info.get('sheets', [])
-            
-            if sheets:
-                # Use the first sheet - clear it instead of deleting
-                first_sheet = sheets[0]
-                sheet_id = first_sheet['properties']['sheetId']
-                sheet_title = first_sheet['properties']['title']
+        # If spreadsheet_id is provided, use it directly
+        if spreadsheet_id:
+            print(f"Using provided spreadsheet ID: {spreadsheet_id}")
+            try:
+                # Verify the spreadsheet exists and is accessible
+                spreadsheet_info = safe_api_call(
+                    lambda: sheets_service.spreadsheets().get(spreadsheetId=spreadsheet_id).execute(),
+                    "Error accessing specified spreadsheet"
+                )
+                if spreadsheet_info is None:
+                    error_msg = f"Error: Could not access spreadsheet with ID {spreadsheet_id}"
+                    print(error_msg)
+                    show_message(error_msg, is_error=True)
+                    return None
                 
-                # Clear the sheet content
-                sheets_service.spreadsheets().values().clear(
-                    spreadsheetId=spreadsheet_id,
-                    range=sheet_title
-                ).execute()
+                # Use the specified sheet name
+                sheet_name = "BaBa_kohsi様_入力シート"
+                print(f"Using sheet: {sheet_name}")
                 
-                # Rename the sheet if it's not already named "Trainer Data"
-                if sheet_title != "Trainer Data":
-                    sheets_service.spreadsheets().batchUpdate(
-                        spreadsheetId=spreadsheet_id,
-                        body={
-                            "requests": [{
-                                "updateSheetProperties": {
-                                    "properties": {
-                                        "sheetId": sheet_id,
-                                        "title": "Trainer Data"
-                                    },
-                                    "fields": "title"
-                                }
-                            }]
-                        }
-                    ).execute()
-                    sheet_title = "Trainer Data"
-                
-                # Delete any additional sheets (if there are more than one)
-                if len(sheets) > 1:
-                    batch_requests = []
-                    for sheet in sheets[1:]:  # Skip the first sheet
-                        batch_requests.append({
-                            "deleteSheet": {
-                                "sheetId": sheet['properties']['sheetId']
-                            }
-                        })
-                    
-                    if batch_requests:
-                        sheets_service.spreadsheets().batchUpdate(
-                            spreadsheetId=spreadsheet_id,
-                            body={"requests": batch_requests}
-                        ).execute()
-            else:
-                # This shouldn't happen, but just in case
-                print("Error: Spreadsheet exists but has no sheets")
+            except Exception as e:
+                error_msg = f"Error accessing spreadsheet: {str(e)}"
+                print(error_msg)
+                show_message(error_msg, is_error=True)
                 return None
-                
-        else:
-            # Create a new spreadsheet with a custom sheet name
-            spreadsheet_body = {
-                'properties': {
-                    'title': spreadsheet_name
-                },
-                'sheets': [{
-                    'properties': {
-                        'title': 'Trainer Data'
-                    }
-                }]
-            }
-            
-            spreadsheet = sheets_service.spreadsheets().create(
-                body=spreadsheet_body
-            ).execute()
-            
-            spreadsheet_id = spreadsheet['spreadsheetId']
-            sheet_title = "Trainer Data"
-            print(f"Created new spreadsheet: {spreadsheet_name} (ID: {spreadsheet_id})")
         
         # Prepare data for upload
-        if not data:
-            print("Warning: No data to upload (empty JSON)")
+        if not data or not isinstance(data, list) or len(data) == 0:
+            warning_msg = "Warning: No data to upload or invalid data format"
+            print(warning_msg)
+            show_message(warning_msg, is_error=True)
             return spreadsheet_id
+        
+        # Prepare data rows
+        headers = ["rank", "rating", "name", "article_url"]
+        for i in range(1, 7):  # For 6 Pokemon
+            pokemon_prefix = f"pokemon{i}_"
+            headers.extend([
+                f"{pokemon_prefix}name",
+                f"{pokemon_prefix}item",
+                f"{pokemon_prefix}nature",
+                f"{pokemon_prefix}ability",
+                f"{pokemon_prefix}Ttype",
+                f"{pokemon_prefix}moves",
+                f"{pokemon_prefix}effort"
+            ])
+        
+        rows = [headers]
+        
+        # Process each trainer
+        for trainer in data:
+            row = [
+                trainer.get("rank", ""),
+                trainer.get("rating", ""),
+                trainer.get("trainer_name", ""),
+                trainer.get("article_url", "")
+            ]
             
-        # Convert data to a format suitable for Sheets
-        if isinstance(data, list) and len(data) > 0:
-            # Get headers from the first item
-            headers = list(data[0].keys())
+            # Add Pokemon data
+            pokemon_list = trainer.get("pokemon", [])
+            for i in range(6):  # Always process 6 slots
+                if i < len(pokemon_list):
+                    pokemon = pokemon_list[i]
+                    moves_str = ", ".join(pokemon.get("moves", []))
+                    evs = pokemon.get("evs", {})
+                    effort_str = f"H{evs.get('H', '0')}, A{evs.get('A', '0')}, B{evs.get('B', '0')}, C{evs.get('C', '0')}, D{evs.get('D', '0')}, S{evs.get('S', '0')}"
+                    
+                    row.extend([
+                        pokemon.get("name", ""),
+                        pokemon.get("item", ""),
+                        pokemon.get("nature", ""),
+                        pokemon.get("ability", ""),
+                        pokemon.get("tera_type", ""),
+                        moves_str,
+                        effort_str
+                    ])
+                else:
+                    # Fill empty slots
+                    row.extend([""] * 7)  # 7 fields per Pokemon
             
-            # Create values array with headers as first row
-            values = [headers]
-            
-            # Add data rows
-            for item in data:
-                row = [item.get(header, '') for header in headers]
-                values.append(row)
-                
-        elif isinstance(data, dict):
-            # Handle dictionary data
-            headers = list(data.keys())
-            values = [headers, list(data.values())]
-        else:
-            print(f"Error: Unsupported data format. Expected list or dict, got {type(data)}")
+            rows.append(row)
+        
+        # Upload data
+        result = safe_api_call(
+            lambda: sheets_service.spreadsheets().values().update(
+                spreadsheetId=spreadsheet_id,
+                range=f"'{sheet_name}'!A1",
+                valueInputOption="RAW",
+                body={"values": rows}
+            ).execute(),
+            "Error uploading data"
+        )
+        
+        if result is None:
+            show_message("Error uploading data to Google Sheets", is_error=True)
             return None
-        
-        # Upload the data
-        result = sheets_service.spreadsheets().values().update(
-            spreadsheetId=spreadsheet_id,
-            range=f"Trainer Data!A1",
-            valueInputOption="RAW",
-            body={"values": values}
-        ).execute()
-        
-        # Format the header row (make it bold)
-        sheets_service.spreadsheets().batchUpdate(
-            spreadsheetId=spreadsheet_id,
-            body={
-                "requests": [{
-                    "repeatCell": {
-                        "range": {
-                            "sheetId": 0,
-                            "startRowIndex": 0,
-                            "endRowIndex": 1
-                        },
-                        "cell": {
-                            "userEnteredFormat": {
-                                "textFormat": {
-                                    "bold": True
-                                }
-                            }
-                        },
-                        "fields": "userEnteredFormat.textFormat.bold"
-                    }
-                }]
-            }
-        ).execute()
-        
-        print(f"Successfully uploaded data to Google Sheets: {len(values)-1} rows of data")
-        print(f"Spreadsheet URL: https://docs.google.com/spreadsheets/d/{spreadsheet_id}")
+            
+        success_msg = f"Successfully uploaded {len(rows)-1} entries to the spreadsheet\nSpreadsheet URL: https://docs.google.com/spreadsheets/d/{spreadsheet_id}"
+        print(success_msg)
+        show_message(success_msg)
         return spreadsheet_id
         
     except HttpError as error:
-        print(f"Error uploading to Google Sheets: {error.resp.status} {error.content.decode('utf-8')}")
+        error_msg = f"Error uploading to Google Sheets: {error.resp.status} {error.content.decode('utf-8')}"
+        print(error_msg)
+        show_message(error_msg, is_error=True)
         return None
     except Exception as e:
-        print(f"Error: {type(e).__name__}: {str(e)}")
+        error_msg = f"Error: {type(e).__name__}: {str(e)}"
+        print(error_msg)
+        show_message(error_msg, is_error=True)
         return None
 
 # Example usage
 if __name__ == "__main__":
+    SPREADSHEET_ID = "1wiBHSCdacFaPJoYV17C1OzLe-MitprC8dtrb7hh4wZY"  # Your specific spreadsheet ID
     upload_to_sheets(
         "trainer_data.json",
         "Pokemon SV Trainer Data",
-        "credentials.json"
-    ) 
+        "credentials.json",
+        spreadsheet_id=SPREADSHEET_ID
+    )

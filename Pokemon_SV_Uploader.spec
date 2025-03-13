@@ -2,11 +2,11 @@
 
 
 a = Analysis(
-    ['gui_app.py'],
+    ['pokemon_sv_uploader.py'],
     pathex=[],
     binaries=[],
-    datas=[],
-    hiddenimports=[],
+    datas=[('credentials.json', '.'), ('sample_trainer_data.json', '.')],
+    hiddenimports=['requests', 'bs4', 'google.oauth2.service_account', 'googleapiclient.discovery', 'googleapiclient.errors', 'tkinter'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='Pokemon_SV_Scraper',
+    name='Pokemon_SV_Uploader',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
